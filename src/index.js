@@ -1,6 +1,7 @@
 import { btns } from './buttons.js';
 
 const main = document.querySelector('.main');
+const input = createInputField()
 
 function createKeyboard() {
   const kb = document.createElement('div');
@@ -15,14 +16,23 @@ function createKeyboard() {
 }
 function renderButtons() {
   const rows = document.querySelectorAll('.keyboard__row');
-  rows.forEach((row,i) => {
-    btns.filter(btn => btn.row === i + 1).forEach( btn => {
+  rows.forEach((row, i) => {
+    row.innerHTML = '';
+    btns.filter((btn) => btn.row === i + 1).forEach((btn) => {
       const key = document.createElement('button');
-      key.classList.add('key');
+      key.classList.add('key',`${btn.name}`);
       key.textContent = btn.value;
-      row.append(key)
-    })
-  })
+      row.append(key);
+    });
+  });
+}
+
+function createInputField () {
+  const input = document.createElement('textarea');
+  input.className = 'input';
+  input.rows = 5;
+  main.append(input)
+  return input;
 }
 
 createKeyboard();

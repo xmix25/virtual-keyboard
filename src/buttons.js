@@ -141,7 +141,7 @@ export const btns = [
   },
   {
     name: 'Delete',
-    value: 'Delete',
+    value: 'Del',
     row: 2,
   },
   {
@@ -266,7 +266,7 @@ export const btns = [
   },
   {
     name: 'ArrowUp',
-    value: 'ArrowUp',
+    value: '↑',
     row: 4,
   },
   {
@@ -276,12 +276,12 @@ export const btns = [
   },
   {
     name: 'ControlLeft',
-    value: 'Control',
+    value: 'Ctrl',
     row: 5,
   },
   {
     name: 'MetaLeft',
-    value: 'Meta',
+    value: 'Win',
     row: 5,
   },
   {
@@ -301,22 +301,22 @@ export const btns = [
   },
   {
     name: 'ArrowLeft',
-    value: 'ArrowLeft',
+    value: '←',
     row: 5,
   },
   {
     name: 'ArrowDown',
-    value: 'ArrowDown',
+    value: '↓',
     row: 5,
   },
   {
     name: 'ArrowRight',
-    value: 'ArrowRight',
+    value: '→',
     row: 5,
   },
   {
     name: 'ControlRight',
-    value: 'Control',
+    value: 'Ctrl',
     row: 5,
   },
 ];
