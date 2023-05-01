@@ -36,6 +36,9 @@ function renderButtons(options) {
       if(btn.id === 'CapsLock'){
         key.classList.add(`${caps?'key_active':'key'}`)
       }
+      if(btn.id === 'ShiftLeft'){
+        key.classList.add(`${shift?'key_active':'key'}`)
+      }
       key.textContent = (typeof btn.value === 'string') ? btn.value : btn.value[lang][size];
       row.append(key);
     });
@@ -73,11 +76,21 @@ function keyboardHandler(e) {
       keyboardOptions.lang = keyboardOptions.lang === 'lang1' ? 'lang2' : 'lang1';
       renderButtons(keyboardOptions);
     }
+    if(e.code === 'ShiftLeft' || e.code === 'ShiftRight'){
+      keyboardOptions.shift = true;
+      keyboardOptions.size = keyboardOptions.size === 'lower' ? 'upper' : 'lower';
+      renderButtons(keyboardOptions);
+    }
     key.click();
     if(key.classList.contains('CapsLock')) return
     key.classList.add('key_active');
   } else {
-    btnsPress.delete(e.code)
+    btnsPress.delete(e.code);
+    if(e.code === 'ShiftLeft' || e.code === 'ShiftRight'){
+      keyboardOptions.shift = false;
+      keyboardOptions.size = keyboardOptions.size === 'lower' ? 'upper' : 'lower';
+      renderButtons(keyboardOptions);
+    }
     if(key.classList.contains('CapsLock')) return
     key.classList.remove('key_active');
   }
