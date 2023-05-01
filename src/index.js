@@ -16,11 +16,12 @@ function createKeyboard() {
   }
   kb.className = 'keyboard';
   kb.addEventListener('click', clickHandler);
-  document.body.addEventListener('keydown', keyboardHandler);
-  document.body.addEventListener('keyup', keyboardHandler);
+  document.addEventListener('keydown', keyboardHandler);
+  document.addEventListener('keyup', keyboardHandler);
   main.append(kb);
   renderButtons(keyboardOptions);
 }
+
 function renderButtons(options) {
   const { lang, size } = options;
   const rows = document.querySelectorAll('.keyboard__row');
@@ -36,17 +37,25 @@ function renderButtons(options) {
 }
 
 function clickHandler(e) {
+  e.preventDefault();
   const targetBtn = e.target.closest('.key');
+  if(targetBtn.classList.contains('Enter')){
+    input.value += '\n'
+  }else if(targetBtn.classList.contains('Delete')){
+    deleteSymbol('del');
+  }else if(targetBtn.classList.contains('Backspace')){
+    deleteSymbol();
+  }
   const btnValue = targetBtn.classList.contains('control-btn') ? '' : targetBtn.textContent;
   input.value += btnValue;
 }
 
 function keyboardHandler(e){
-  e.preventDeafult;
+  e.preventDefault();
   const key = document.querySelector(`.${e.code}`);
   if(e.type === 'keydown') {
-    key.classList.add('key_active');
-    key.click();
+      key.classList.add('key_active');
+      key.click();
   }else {
     key.classList.remove('key_active');
   }
@@ -65,6 +74,18 @@ function createMain () {
   main.className = 'main';
   document.body.prepend(main);
   return main;
+}
+
+function deleteSymbol(key) {
+  let position = input.selectionStart
+  if(key === 'del'){
+    input.value = input.value.slice(0,position) + input.value.slice(position + 1);
+    input.selectionStart =input.selectionEnd = position;
+  }else {
+    input.value = input.value.slice(0, position - 1) + input.value.slice(position);
+    input.selectionStart =input.selectionEnd = position - 1;
+  }
+  input.focus();
 }
 
 createKeyboard();

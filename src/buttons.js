@@ -198,7 +198,7 @@ export const btns = [
     id: 'Backspace',
     value: 'Backspace',
     row: 1,
-    control: false,
+    control: true,
   },
   {
     id: 'Tab',
@@ -405,7 +405,7 @@ export const btns = [
     id: 'Delete',
     value: 'Del',
     row: 2,
-    control: false,
+    control: true,
   },
   {
     id: 'CapsLock',
