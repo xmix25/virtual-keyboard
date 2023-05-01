@@ -1,0 +1,74 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.info {
+  size: inherit;
+  margin-top: 20px;
+}
+
+.main {
+  width: 750px;
+  margin: 100px auto 0;
+}
+
+.input {
+  width: 100%;
+  resize: none;
+  font-size: 24px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.keyboard__row {
+  display: flex;
+  justify-content: space-between;
+}
+.key {
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease;
+}
+
+.key_active {
+  background-color: #f85858;
+}
+
+.key:hover {
+  background-color: #f85858;
+  cursor: pointer;
+}
+
+.Backspace,
+.ShiftLeft,
+.CapsLock {
+  width: 100px;
+}
+
+.ShiftRight,
+.Enter {
+  width: 86px;
+}
+
+.Delete {
+  width: 44px;
+}
+
+.Tab {
+  width: 50px;
+}
+
+.Space {
+  width: 370px;
+}
