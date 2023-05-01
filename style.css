@@ -6,6 +6,11 @@
   margin: 0;
 }
 
+.info {
+  size: inherit;
+  margin-top: 20px;
+}
+
 .main {
   width: 750px;
   margin: 100px auto 0;

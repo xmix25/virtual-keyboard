@@ -14,6 +14,9 @@ const keyboardOptions = (localStorage.getItem('options')) ? (JSON.parse(localSto
 
 function createKeyboard() {
   const kb = document.createElement('div');
+  const info = document.createElement('p');
+  info.classList.add('info');
+  info.textContent = 'Ctrl + Alt for language change'
   for (let i = 1; i <= 5; i++) {
     const row = document.createElement('div');
     row.className = `keyboard__row keyboard__row-${i}`;
@@ -23,7 +26,8 @@ function createKeyboard() {
   kb.addEventListener('click', clickHandler);
   document.addEventListener('keydown', keyboardHandler);
   document.addEventListener('keyup', keyboardHandler);
-  main.append(kb);
+  main.append(kb, info);
+  // main.append(info);
   localStorage.setItem('options', JSON.stringify(keyboardOptions))
   renderButtons(keyboardOptions);
 }
