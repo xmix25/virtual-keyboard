@@ -38,25 +38,28 @@ function renderButtons(options) {
 
 function clickHandler(e) {
   e.preventDefault();
+  const position = input.selectionStart;
   const targetBtn = e.target.closest('.key');
-  if(targetBtn.classList.contains('Enter')){
-    input.value += '\n'
-  }else if(targetBtn.classList.contains('Delete')){
-    deleteSymbol('del');
-  }else if(targetBtn.classList.contains('Backspace')){
-    deleteSymbol();
-  }
   const btnValue = targetBtn.classList.contains('control-btn') ? '' : targetBtn.textContent;
-  input.value += btnValue;
+  if (targetBtn.classList.contains('Delete')) {
+    deleteSymbol('del', position);
+    return;
+  } if (targetBtn.classList.contains('Backspace')) {
+    deleteSymbol('bcksp', position);
+    return;
+  }
+  input.focus();
+  input.value = input.value.slice(0, position) + btnValue + input.value.slice(position);
+  input.selectionStart = input.selectionEnd = position + 1;
 }
 
-function keyboardHandler(e){
+function keyboardHandler(e) {
   e.preventDefault();
   const key = document.querySelector(`.${e.code}`);
-  if(e.type === 'keydown') {
-      key.classList.add('key_active');
-      key.click();
-  }else {
+  if (e.type === 'keydown') {
+    key.classList.add('key_active');
+    key.click();
+  } else {
     key.classList.remove('key_active');
   }
 }
@@ -69,23 +72,24 @@ function createInputField() {
   return input;
 }
 
-function createMain () {
+function createMain() {
   const main = document.createElement('main');
   main.className = 'main';
   document.body.prepend(main);
   return main;
 }
 
-function deleteSymbol(key) {
-  let position = input.selectionStart
-  if(key === 'del'){
-    input.value = input.value.slice(0,position) + input.value.slice(position + 1);
-    input.selectionStart =input.selectionEnd = position;
-  }else {
-    input.value = input.value.slice(0, position - 1) + input.value.slice(position);
-    input.selectionStart =input.selectionEnd = position - 1;
+function deleteSymbol(key, position) {
+  if (key === 'del') {
+    input.value = input.value.slice(0, position) + input.value.slice(position + 1);
+    input.focus();
+    input.selectionStart = input.selectionEnd = position;
+  } else if (key === 'bcksp') {
+    const pos = position - 1 < 0 ? 0 : position - 1;
+    input.value = input.value.slice(0, pos) + input.value.slice(position);
+    input.focus();
+    input.selectionStart = input.selectionEnd = pos;
   }
-  input.focus();
 }
 
 createKeyboard();
