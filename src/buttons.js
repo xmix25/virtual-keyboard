@@ -1,322 +1,809 @@
 export const btns = [
   {
-    name: 'Backquote',
-    value: '`',
+    id: 'Backquote',
+    value: {
+      lang1: {
+        lower: '`',
+        upper: '~',
+      },
+      lang2: {
+        lower: 'ё',
+        upper: 'Ё',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit1',
-    value: '1',
+    id: 'Digit1',
+    value: {
+      lang1: {
+        lower: '1',
+        upper: '!',
+      },
+      lang2: {
+        lower: '1',
+        upper: '!',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit2',
-    value: '2',
+    id: 'Digit2',
+    value: {
+      lang1: {
+        lower: '2',
+        upper: '@',
+      },
+      lang2: {
+        lower: '2',
+        upper: '"',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit3',
-    value: '3',
+    id: 'Digit3',
+    value: {
+      lang1: {
+        lower: '3',
+        upper: '#',
+      },
+      lang2: {
+        lower: '3',
+        upper: '№',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit4',
-    value: '4',
+    id: 'Digit4',
+    value: {
+      lang1: {
+        lower: '4',
+        upper: '$',
+      },
+      lang2: {
+        lower: '4',
+        upper: ';',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit5',
-    value: '5',
+    id: 'Digit5',
+    value: {
+      lang1: {
+        lower: '5',
+        upper: '%',
+      },
+      lang2: {
+        lower: '5',
+        upper: '%',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit6',
-    value: '6',
+    id: 'Digit6',
+    value: {
+      lang1: {
+        lower: '6',
+        upper: '^',
+      },
+      lang2: {
+        lower: '6',
+        upper: ':',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit7',
-    value: '7',
+    id: 'Digit7',
+    value: {
+      lang1: {
+        lower: '7',
+        upper: '&',
+      },
+      lang2: {
+        lower: '7',
+        upper: '?',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit8',
-    value: '8',
+    id: 'Digit8',
+    value: {
+      lang1: {
+        lower: '8',
+        upper: '*',
+      },
+      lang2: {
+        lower: '8',
+        upper: '*',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit9',
-    value: '9',
+    id: 'Digit9',
+    value: {
+      lang1: {
+        lower: '9',
+        upper: '(',
+      },
+      lang2: {
+        lower: '9',
+        upper: '(',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Digit0',
-    value: '0',
+    id: 'Digit0',
+    value: {
+      lang1: {
+        lower: '0',
+        upper: ')',
+      },
+      lang2: {
+        lower: '0',
+        upper: ')',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Minus',
-    value: '-',
+    id: 'Minus',
+    value: {
+      lang1: {
+        lower: '-',
+        upper: '_',
+      },
+      lang2: {
+        lower: '-',
+        upper: '_',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Equal',
-    value: '=',
+    id: 'Equal',
+    value: {
+      lang1: {
+        lower: '=',
+        upper: '+',
+      },
+      lang2: {
+        lower: '=',
+        upper: '+',
+      },
+    },
     row: 1,
+    control: false,
   },
   {
-    name: 'Backspace',
+    id: 'Backspace',
     value: 'Backspace',
     row: 1,
+    control: false,
   },
   {
-    name: 'Tab',
+    id: 'Tab',
     value: 'Tab',
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyQ',
-    value: 'q',
+    id: 'KeyQ',
+    value: {
+      lang1: {
+        lower: 'q',
+        upper: 'Q',
+      },
+      lang2: {
+        lower: 'й',
+        upper: 'Й',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyW',
-    value: 'w',
+    id: 'KeyW',
+    value: {
+      lang1: {
+        lower: 'w',
+        upper: 'W',
+      },
+      lang2: {
+        lower: 'ц',
+        upper: 'Ц',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyE',
-    value: 'e',
+    id: 'KeyE',
+    value: {
+      lang1: {
+        lower: 'e',
+        upper: 'E',
+      },
+      lang2: {
+        lower: 'у',
+        upper: 'У',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyR',
-    value: 'r',
+    id: 'KeyR',
+    value: {
+      lang1: {
+        lower: 'r',
+        upper: 'R',
+      },
+      lang2: {
+        lower: 'к',
+        upper: 'К',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyT',
-    value: 't',
+    id: 'KeyT',
+    value: {
+      lang1: {
+        lower: 't',
+        upper: 'T',
+      },
+      lang2: {
+        lower: 'е',
+        upper: 'Е',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyY',
-    value: 'y',
+    id: 'KeyY',
+    value: {
+      lang1: {
+        lower: 'y',
+        upper: 'Y',
+      },
+      lang2: {
+        lower: 'н',
+        upper: 'Н',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyU',
-    value: 'u',
+    id: 'KeyU',
+    value: {
+      lang1: {
+        lower: 'u',
+        upper: 'U',
+      },
+      lang2: {
+        lower: 'г',
+        upper: 'Г',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyI',
-    value: 'i',
+    id: 'KeyI',
+    value: {
+      lang1: {
+        lower: 'i',
+        upper: 'I',
+      },
+      lang2: {
+        lower: 'ш',
+        upper: 'Ш',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyO',
-    value: 'o',
+    id: 'KeyO',
+    value: {
+      lang1: {
+        lower: 'o',
+        upper: 'O',
+      },
+      lang2: {
+        lower: 'щ',
+        upper: 'Щ',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'KeyP',
-    value: 'p',
+    id: 'KeyP',
+    value: {
+      lang1: {
+        lower: 'p',
+        upper: 'P',
+      },
+      lang2: {
+        lower: 'з',
+        upper: 'З',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'BracketLeft',
-    value: '[',
+    id: 'BracketLeft',
+    value: {
+      lang1: {
+        lower: '[',
+        upper: '{',
+      },
+      lang2: {
+        lower: 'х',
+        upper: 'Х',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'BracketRight',
-    value: ']',
+    id: 'BracketRight',
+    value: {
+      lang1: {
+        lower: ']',
+        upper: '}',
+      },
+      lang2: {
+        lower: 'ъ',
+        upper: 'Ъ',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'Backslash',
-    value: '\\',
+    id: 'Backslash',
+    value: {
+      lang1: {
+        lower: '\\',
+        upper: '|',
+      },
+      lang2: {
+        lower: '\\',
+        upper: '/',
+      },
+    },
     row: 2,
+    control: false,
   },
   {
-    name: 'Delete',
+    id: 'Delete',
     value: 'Del',
     row: 2,
+    control: false,
   },
   {
-    name: 'CapsLock',
+    id: 'CapsLock',
     value: 'CapsLock',
     row: 3,
+    control: true,
   },
   {
-    name: 'KeyA',
-    value: 'a',
+    id: 'KeyA',
+    value: {
+      lang1: {
+        lower: 'a',
+        upper: 'A',
+      },
+      lang2: {
+        lower: 'ф',
+        upper: 'Ф',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyS',
-    value: 's',
+    id: 'KeyS',
+    value: {
+      lang1: {
+        lower: 's',
+        upper: 'S',
+      },
+      lang2: {
+        lower: 'ы',
+        upper: 'Ы',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyD',
-    value: 'd',
+    id: 'KeyD',
+    value: {
+      lang1: {
+        lower: 'd',
+        upper: 'D',
+      },
+      lang2: {
+        lower: 'в',
+        upper: 'В',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyF',
-    value: 'f',
+    id: 'KeyF',
+    value: {
+      lang1: {
+        lower: 'f',
+        upper: 'F',
+      },
+      lang2: {
+        lower: 'а',
+        upper: 'А',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyG',
-    value: 'g',
+    id: 'KeyG',
+    value: {
+      lang1: {
+        lower: 'g',
+        upper: 'G',
+      },
+      lang2: {
+        lower: 'п',
+        upper: 'П',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyH',
-    value: 'h',
+    id: 'KeyH',
+    value: {
+      lang1: {
+        lower: 'h',
+        upper: 'H',
+      },
+      lang2: {
+        lower: 'р',
+        upper: 'Р',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyJ',
-    value: 'j',
+    id: 'KeyJ',
+    value: {
+      lang1: {
+        lower: 'j',
+        upper: 'J',
+      },
+      lang2: {
+        lower: 'о',
+        upper: 'О',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyK',
-    value: 'k',
+    id: 'KeyK',
+    value: {
+      lang1: {
+        lower: 'k',
+        upper: 'K',
+      },
+      lang2: {
+        lower: 'л',
+        upper: 'Л',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'KeyL',
-    value: 'l',
+    id: 'KeyL',
+    value: {
+      lang1: {
+        lower: 'l',
+        upper: 'L',
+      },
+      lang2: {
+        lower: 'д',
+        upper: 'Д',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'Semicolon',
-    value: ';',
+    id: 'Semicolon',
+    value: {
+      lang1: {
+        lower: ';',
+        upper: ':',
+      },
+      lang2: {
+        lower: 'ж',
+        upper: 'Ж',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'Quote',
-    value: "'",
+    id: 'Quote',
+    value: {
+      lang1: {
+        lower: '\'',
+        upper: '"',
+      },
+      lang2: {
+        lower: 'э',
+        upper: 'Э',
+      },
+    },
     row: 3,
+    control: false,
   },
   {
-    name: 'Enter',
+    id: 'Enter',
     value: 'Enter',
     row: 3,
+    control: true,
   },
   {
-    name: 'ShiftLeft',
+    id: 'ShiftLeft',
     value: 'Shift',
     row: 4,
+    control: true,
   },
   {
-    name: 'KeyZ',
-    value: 'z',
+    id: 'KeyZ',
+    value: {
+      lang1: {
+        lower: 'z',
+        upper: 'Z',
+      },
+      lang2: {
+        lower: 'я',
+        upper: 'Я',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'KeyX',
-    value: 'x',
+    id: 'KeyX',
+    value: {
+      lang1: {
+        lower: 'x',
+        upper: 'X',
+      },
+      lang2: {
+        lower: 'ч',
+        upper: 'Ч',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'KeyC',
-    value: 'c',
+    id: 'KeyC',
+    value: {
+      lang1: {
+        lower: 'c',
+        upper: 'C',
+      },
+      lang2: {
+        lower: 'с',
+        upper: 'С',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'KeyV',
-    value: 'v',
+    id: 'KeyV',
+    value: {
+      lang1: {
+        lower: 'v',
+        upper: 'V',
+      },
+      lang2: {
+        lower: 'м',
+        upper: 'М',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'KeyB',
-    value: 'b',
+    id: 'KeyB',
+    value: {
+      lang1: {
+        lower: 'b',
+        upper: 'B',
+      },
+      lang2: {
+        lower: 'и',
+        upper: 'И',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'KeyN',
-    value: 'n',
+    id: 'KeyN',
+    value: {
+      lang1: {
+        lower: 'n',
+        upper: 'N',
+      },
+      lang2: {
+        lower: 'т',
+        upper: 'Т',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'KeyM',
-    value: 'm',
+    id: 'KeyM',
+    value: {
+      lang1: {
+        lower: 'm',
+        upper: 'M',
+      },
+      lang2: {
+        lower: 'ь',
+        upper: 'Ь',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'Comma',
-    value: ',',
+    id: 'Comma',
+    value: {
+      lang1: {
+        lower: ',',
+        upper: '<',
+      },
+      lang2: {
+        lower: 'б',
+        upper: 'Б',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'Period',
-    value: '.',
+    id: 'Period',
+    value: {
+      lang1: {
+        lower: '.',
+        upper: '>',
+      },
+      lang2: {
+        lower: 'ю',
+        upper: 'Ю',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'Slash',
-    value: '/',
+    id: 'Slash',
+    value: {
+      lang1: {
+        lower: '/',
+        upper: '?',
+      },
+      lang2: {
+        lower: '.',
+        upper: ',',
+      },
+    },
     row: 4,
+    control: false,
   },
   {
-    name: 'ArrowUp',
+    id: 'ArrowUp',
     value: '↑',
     row: 4,
+    control: false,
   },
   {
-    name: 'ShiftRight',
+    id: 'ShiftRight',
     value: 'Shift',
     row: 4,
+    control: true,
   },
   {
-    name: 'ControlLeft',
+    id: 'ControlLeft',
     value: 'Ctrl',
     row: 5,
+    control: true,
   },
   {
-    name: 'MetaLeft',
+    id: 'MetaLeft',
     value: 'Win',
     row: 5,
+    control: true,
   },
   {
-    name: 'AltLeft',
+    id: 'AltLeft',
     value: 'Alt',
     row: 5,
+    control: true,
   },
   {
-    name: 'Space',
+    id: 'Space',
     value: ' ',
     row: 5,
+    control: false,
   },
   {
-    name: 'AltRight',
+    id: 'AltRight',
     value: 'Alt',
     row: 5,
+    control: true,
   },
   {
-    name: 'ArrowLeft',
+    id: 'ArrowLeft',
     value: '←',
     row: 5,
+    control: false,
   },
   {
-    name: 'ArrowDown',
+    id: 'ArrowDown',
     value: '↓',
     row: 5,
+    control: false,
   },
   {
-    name: 'ArrowRight',
+    id: 'ArrowRight',
     value: '→',
     row: 5,
+    control: false,
   },
   {
-    name: 'ControlRight',
+    id: 'ControlRight',
     value: 'Ctrl',
     row: 5,
+    control: true,
   },
 ];

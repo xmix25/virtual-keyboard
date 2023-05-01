@@ -1,7 +1,11 @@
 import { btns } from './buttons.js';
 
-const main = document.querySelector('.main');
-const input = createInputField()
+const main = createMain();
+const input = createInputField();
+const keyboardOptions = {
+  lang: 'lang1',
+  size: 'lower',
+};
 
 function createKeyboard() {
   const kb = document.createElement('div');
@@ -11,28 +15,56 @@ function createKeyboard() {
     kb.append(row);
   }
   kb.className = 'keyboard';
+  kb.addEventListener('click', clickHandler);
+  document.body.addEventListener('keydown', keyboardHandler);
+  document.body.addEventListener('keyup', keyboardHandler);
   main.append(kb);
-  renderButtons();
+  renderButtons(keyboardOptions);
 }
-function renderButtons() {
+function renderButtons(options) {
+  const { lang, size } = options;
   const rows = document.querySelectorAll('.keyboard__row');
   rows.forEach((row, i) => {
     row.innerHTML = '';
     btns.filter((btn) => btn.row === i + 1).forEach((btn) => {
       const key = document.createElement('button');
-      key.classList.add('key',`${btn.name}`);
-      key.textContent = btn.value;
+      key.className = `key ${btn.id} ${btn.control ? 'control-btn' : ' '}`;
+      key.textContent = (typeof btn.value === 'string') ? btn.value : btn.value[lang][size];
       row.append(key);
     });
   });
 }
 
-function createInputField () {
+function clickHandler(e) {
+  const targetBtn = e.target.closest('.key');
+  const btnValue = targetBtn.classList.contains('control-btn') ? '' : targetBtn.textContent;
+  input.value += btnValue;
+}
+
+function keyboardHandler(e){
+  e.preventDeafult;
+  const key = document.querySelector(`.${e.code}`);
+  if(e.type === 'keydown') {
+    key.classList.add('key_active');
+    key.click();
+  }else {
+    key.classList.remove('key_active');
+  }
+}
+
+function createInputField() {
   const input = document.createElement('textarea');
   input.className = 'input';
   input.rows = 5;
-  main.append(input)
+  main.append(input);
   return input;
+}
+
+function createMain () {
+  const main = document.createElement('main');
+  main.className = 'main';
+  document.body.prepend(main);
+  return main;
 }
 
 createKeyboard();

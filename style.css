@@ -36,6 +36,10 @@
   transition: background-color 0.3s ease;
 }
 
+.key_active {
+  background-color: #f85858;
+}
+
 .key:hover {
   background-color: #f85858;
   cursor: pointer;
