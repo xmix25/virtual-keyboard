@@ -2,9 +2,12 @@ import { btns } from './buttons.js';
 
 const main = createMain();
 const input = createInputField();
+const btnsPress = new Set();
 const keyboardOptions = {
   lang: 'lang1',
   size: 'lower',
+  caps: false,
+  shift: false,
 };
 
 function createKeyboard() {
@@ -23,13 +26,16 @@ function createKeyboard() {
 }
 
 function renderButtons(options) {
-  const { lang, size } = options;
+  const { lang, size, caps, shift} = options;
   const rows = document.querySelectorAll('.keyboard__row');
   rows.forEach((row, i) => {
     row.innerHTML = '';
     btns.filter((btn) => btn.row === i + 1).forEach((btn) => {
       const key = document.createElement('button');
       key.className = `key ${btn.id} ${btn.control ? 'control-btn' : ' '}`;
+      if(btn.id === 'CapsLock'){
+        key.classList.add(`${caps?'key_active':'key'}`)
+      }
       key.textContent = (typeof btn.value === 'string') ? btn.value : btn.value[lang][size];
       row.append(key);
     });
@@ -47,6 +53,11 @@ function clickHandler(e) {
   } if (targetBtn.classList.contains('Backspace')) {
     deleteSymbol('bcksp', position);
     return;
+  }else if (targetBtn.classList.contains('CapsLock')){
+    targetBtn.classList.toggle('key_active');
+    keyboardOptions.caps = !keyboardOptions.caps;
+    keyboardOptions.size = (targetBtn.classList.contains('key_active')) ? 'upper' : 'lower';
+    renderButtons(keyboardOptions);
   }
   input.focus();
   input.value = input.value.slice(0, position) + btnValue + input.value.slice(position);
@@ -57,9 +68,17 @@ function keyboardHandler(e) {
   e.preventDefault();
   const key = document.querySelector(`.${e.code}`);
   if (e.type === 'keydown') {
-    key.classList.add('key_active');
+    btnsPress.add(e.code);
+    if(btnsPress.has('AltLeft') && btnsPress.has('ControlLeft')){
+      keyboardOptions.lang = keyboardOptions.lang === 'lang1' ? 'lang2' : 'lang1';
+      renderButtons(keyboardOptions);
+    }
     key.click();
+    if(key.classList.contains('CapsLock')) return
+    key.classList.add('key_active');
   } else {
+    btnsPress.delete(e.code)
+    if(key.classList.contains('CapsLock')) return
     key.classList.remove('key_active');
   }
 }
