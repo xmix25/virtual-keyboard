@@ -3,12 +3,14 @@ import { btns } from './buttons.js';
 const main = createMain();
 const input = createInputField();
 const btnsPress = new Set();
-const keyboardOptions = {
+const keyboardOptions = (localStorage.getItem('options')) ? (JSON.parse(localStorage.getItem('options'))) : {
   lang: 'lang1',
   size: 'lower',
   caps: false,
   shift: false,
 };
+
+
 
 function createKeyboard() {
   const kb = document.createElement('div');
@@ -22,6 +24,7 @@ function createKeyboard() {
   document.addEventListener('keydown', keyboardHandler);
   document.addEventListener('keyup', keyboardHandler);
   main.append(kb);
+  localStorage.setItem('options', JSON.stringify(keyboardOptions))
   renderButtons(keyboardOptions);
 }
 
@@ -60,6 +63,7 @@ function clickHandler(e) {
     targetBtn.classList.toggle('key_active');
     keyboardOptions.caps = !keyboardOptions.caps;
     keyboardOptions.size = (targetBtn.classList.contains('key_active')) ? 'upper' : 'lower';
+    localStorage.setItem('options', JSON.stringify(keyboardOptions))
     renderButtons(keyboardOptions);
   }else if(targetBtn.classList.contains('Enter')) {
     btnValue = '\n';
@@ -76,11 +80,13 @@ function keyboardHandler(e) {
     btnsPress.add(e.code);
     if(btnsPress.has('AltLeft') && btnsPress.has('ControlLeft')){
       keyboardOptions.lang = keyboardOptions.lang === 'lang1' ? 'lang2' : 'lang1';
+      localStorage.setItem('options', JSON.stringify(keyboardOptions))
       renderButtons(keyboardOptions);
     }
     if(e.code === 'ShiftLeft' || e.code === 'ShiftRight'){
       keyboardOptions.shift = true;
       keyboardOptions.size = keyboardOptions.size === 'lower' ? 'upper' : 'lower';
+      localStorage.setItem('options', JSON.stringify(keyboardOptions))
       renderButtons(keyboardOptions);
     }
     key.click();
@@ -91,6 +97,7 @@ function keyboardHandler(e) {
     if(e.code === 'ShiftLeft' || e.code === 'ShiftRight'){
       keyboardOptions.shift = false;
       keyboardOptions.size = keyboardOptions.size === 'lower' ? 'upper' : 'lower';
+      localStorage.setItem('options', JSON.stringify(keyboardOptions))
       renderButtons(keyboardOptions);
     }
     if(key.classList.contains('CapsLock')) return
