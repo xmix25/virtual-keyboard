@@ -49,11 +49,11 @@ function clickHandler(e) {
   e.preventDefault();
   const position = input.selectionStart;
   const targetBtn = e.target.closest('.key');
-  const btnValue = targetBtn.classList.contains('control-btn') ? '' : targetBtn.textContent;
+  let btnValue = targetBtn.classList.contains('control-btn') ? '' : targetBtn.textContent;
   if (targetBtn.classList.contains('Delete')) {
     deleteSymbol('del', position);
     return;
-  } if (targetBtn.classList.contains('Backspace')) {
+  }else if (targetBtn.classList.contains('Backspace')) {
     deleteSymbol('bcksp', position);
     return;
   }else if (targetBtn.classList.contains('CapsLock')){
@@ -61,6 +61,8 @@ function clickHandler(e) {
     keyboardOptions.caps = !keyboardOptions.caps;
     keyboardOptions.size = (targetBtn.classList.contains('key_active')) ? 'upper' : 'lower';
     renderButtons(keyboardOptions);
+  }else if(targetBtn.classList.contains('Enter')) {
+    btnValue = '\n';
   }
   input.focus();
   input.value = input.value.slice(0, position) + btnValue + input.value.slice(position);
